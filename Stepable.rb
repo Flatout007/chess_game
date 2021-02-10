@@ -10,7 +10,7 @@ module Stepable
 
             piece_at_pos  = self.board[[row,col]]
 
-            if piece_at_pos.nil? == false 
+            if piece_at_pos.is_a?(NullPiece) == false 
                 if piece_at_pos.color == self.color
                     next
                  else

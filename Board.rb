@@ -51,7 +51,14 @@ class Board
         add_piece(Pawn.new("black", self, [6,6]), [6,6])
         add_piece(Pawn.new("black", self, [6,7]), [6,7])
 
-
+        #null piece
+        self.board.each_with_index() do |sub,i|
+            sub.each_with_index() do |ele,j|
+                if ele.nil?
+                    add_piece(NullPiece.instance, [i,j])
+                end
+            end
+        end
     end
 
  def board
@@ -59,7 +66,7 @@ class Board
  end 
     
     def move_piece(start_pos,end_pos)
-        raise "nothing at start position" if self[start_pos].nil? 
+        raise "nothing at start position" if self[start_pos].is_a?(NullPiece) 
         
         raise "not a valid move" if !self[start_pos].moves.include?(end_pos)
 
@@ -67,7 +74,7 @@ class Board
 
             self[end_pos] = self[start_pos] 
             self[end_pos].pos = end_pos
-            self[start_pos] = nil     #change to null piece?
+            self[start_pos] = NullPiece.instance     #change to null piece?
 
 
         end

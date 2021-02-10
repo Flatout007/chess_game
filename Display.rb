@@ -10,7 +10,7 @@ class Display
         @board.board.each() do |row|
             puts " "
             row.each() do |pos|
-                if pos.nil? == false
+                if pos.is_a?(NullPiece) == false
                     print pos.symbol 
                  else 
                     print " "

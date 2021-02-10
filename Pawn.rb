@@ -26,7 +26,7 @@ class Pawn < Piece
        col = self.pos[1]
 
        unless row - 1< 0 || row + 1 > 7 || col < 0 || col > 7 
-        forward_moves <<  [row + self.forward_dir, col] if self.board[[row + self.forward_dir,col ]].nil?
+        forward_moves <<  [row + self.forward_dir, col] if self.board[[row + self.forward_dir,col ]].is_a?(NullPiece)
        end
 
        forward_moves <<  [row + self.forward_dir * 2, col] if self.at_start_row?
@@ -43,13 +43,13 @@ class Pawn < Piece
         attack_left = self.board[[row-1,col + self.forward_dir]]
         attack_right = self.board[[row+1,col + self.forward_dir]]
 
-        if !attack_left.nil?
+        if !attack_left.is_a?(NullPiece)
             if attack_left.color != self.color
                 side_attacks << attack_left.pos
             end
         end
 
-        if !attack_right.nil?
+        if !attack_right.is_a?(NullPiece)
             if attack_right.color != self.color
                 side_attacks << attack_right.pos
             end

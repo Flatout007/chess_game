@@ -24,7 +24,7 @@ module Slideable
             break if row < 0 || row > 7 || col < 0 || col > 7
            
 
-            if piece_at_pos.nil? == false 
+            if piece_at_pos.is_a?(NullPiece) == false 
                 if piece_at_pos.color == self.color
                     break
                  else
