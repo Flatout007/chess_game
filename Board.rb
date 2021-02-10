@@ -7,6 +7,7 @@ require_relative "Queen.rb"
 require_relative "King.rb"
 require_relative "Pawn.rb"
 require_relative "Nullpiece.rb"
+
 class Board
 
     def initialize
