@@ -25,11 +25,11 @@ class Pawn < Piece
        row = self.pos[0]
        col = self.pos[1]
 
-       unless row < 0 || row > 7 || col - 1 < 0 || col + 1 > 7 
-            forward_moves <<  [row,col + self.forward_dir] if self.board[[row,col + self.forward_dir]].nil?
+       unless row - 1< 0 || row + 1 > 7 || col < 0 || col > 7 
+        forward_moves <<  [row + self.forward_dir, col] if self.board[[row + self.forward_dir,col ]].nil?
        end
 
-       forward_moves <<  [row,col + self.forward_dir * 2] if self.at_start_row?
+       forward_moves <<  [row + self.forward_dir * 2, col] if self.at_start_row?
 
        return forward_moves
     end
