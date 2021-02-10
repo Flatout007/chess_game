@@ -1,4 +1,5 @@
 require_relative "./Piece.rb"
+require_relative "./Slideable.rb"
 class Queen < Piece
     include Slideable
     def initialize(color, board, pos)
@@ -8,8 +9,8 @@ class Queen < Piece
     end
 
     def move_dirs()
-        HORIZONTAL_DIRS += DIAGONAL_DIRS
+        dirs = HORIZONTAL_DIRS + DIAGONAL_DIRS
     end
 
-    
+
 end

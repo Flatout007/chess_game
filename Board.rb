@@ -19,7 +19,7 @@ class Board
         add_piece(King.new("white", self, [0,4]), [0,4])
         add_piece(Bishop.new("white", self, [0,5]), [0,5])
         add_piece(Knight.new("white", self, [0,6]), [0,6])
-        add_piece(Rook.new("white", self, [0,7]), [0,7])
+        add_piece(Rook.new("white", self, [4,4]), [4,4])
 
         # white pawns
         add_piece(Pawn.new("white", self, [1,0]), [1,0])
@@ -60,11 +60,15 @@ class Board
     
     def move_piece(start_pos,end_pos)
         raise "nothing at start position" if self[start_pos].nil? 
+        
+        raise "not a valid move" if !self[start_pos].moves.include?(end_pos)
 
         if valid_pos(start_pos) && valid_pos(end_pos)  #change to null piece?
 
             self[end_pos] = self[start_pos] 
+            self[end_pos].pos = end_pos
             self[start_pos] = nil     #change to null piece?
+
 
         end
 
@@ -95,11 +99,11 @@ class Board
    
 end
 
-chess = Board.new()
+# chess = Board.new()
 
-display = Display.new(chess)
+# display = Display.new(chess)
 #display.render
-chess.move_piece([6,0],[5,0])
+# chess.move_piece([6,0],[5,0])
 #chess.move_piece([6,1],[5,0])
 #display.render()
 

@@ -2,14 +2,16 @@ module Slideable
     HORIZONTAL_DIRS = [[0,1],[1,0],[0,-1],[-1,0]]
     DIAGONAL_DIRS = [[1,1],[-1,-1],[-1,1],[1,-1]]
     
+    
     def move_dirs()
-        HORIZONTAL_DIRS += DIAGONAL_DIRS
+        dirs = HORIZONTAL_DIRS + DIAGONAL_DIRS
     end
 
     def grow_unblocked_moves_in_dir(dx,dy)
         unblocked_moves = []
 
-        row,col = self.pos
+        row = self.pos[0]
+        col = self.pos[1]
 
         while true 
             row += dx 
