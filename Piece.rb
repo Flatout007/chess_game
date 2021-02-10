@@ -1,4 +1,4 @@
-
+require "colorize"
 
 class Piece
     attr_reader :color, :board, :symbol
@@ -10,8 +10,6 @@ class Piece
         @symbol = " "
     end
 end
-
-
 
 
 

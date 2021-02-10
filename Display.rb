@@ -1,4 +1,4 @@
-
+require "colorize"
 
 class Display
     attr_reader :board
@@ -11,9 +11,10 @@ class Display
             puts " "
             row.each() do |pos|
                 if pos.is_a?(NullPiece) == false
-                    print pos.symbol 
+                    print pos.symbol.colorize(:blue) + " "if pos.color == "black"
+                    print pos.symbol + " " if pos.color == "white"
                  else 
-                    print " "
+                    print "_ "
                 end
             end 
         end

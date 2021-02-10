@@ -51,7 +51,7 @@ class Board
         add_piece(Pawn.new("black", self, [6,6]), [6,6])
         add_piece(Pawn.new("black", self, [6,7]), [6,7])
 
-        #null piece
+        #null pieces
         self.board.each_with_index() do |sub,i|
             sub.each_with_index() do |ele,j|
                 if ele.nil?
@@ -106,13 +106,13 @@ class Board
    
 end
 
-# chess = Board.new()
-
-# display = Display.new(chess)
-#display.render
+chess = Board.new()
+display = Display.new(chess)
+display.render
 # chess.move_piece([6,0],[5,0])
 #chess.move_piece([6,1],[5,0])
 #display.render()
 
 # raise error if no piece at start
 # raise error also if pos is not on board
+

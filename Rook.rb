@@ -4,7 +4,7 @@ class Rook < Piece
     include Slideable
     def initialize(color, board, pos)
         super
-        @symbol = 'r'
+        @symbol = '♜'
 
     end
 
