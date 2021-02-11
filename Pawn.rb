@@ -43,13 +43,13 @@ class Pawn < Piece
         attack_left = self.board[[row-1,col + self.forward_dir]]
         attack_right = self.board[[row+1,col + self.forward_dir]]
 
-        if !attack_left.is_a?(NullPiece)
+        if !attack_left.is_a?(NullPiece) && !attack_left.nil?
             if attack_left.color != self.color
                 side_attacks << attack_left.pos
             end
         end
 
-        if !attack_right.is_a?(NullPiece)
+        if !attack_right.is_a?(NullPiece) && !attack_left.nil?
             if attack_right.color != self.color
                 side_attacks << attack_right.pos
             end
@@ -68,3 +68,5 @@ class Pawn < Piece
     end
     
 end
+#b.move_piece([1,5],[3,5])
+#b.move_piece([0,4],[1,6])

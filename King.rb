@@ -10,6 +10,5 @@ class King < Piece
 
     def move_diffs
         return valid_moves_king = [[0,1],[1,0],[0,-1],[-1,0],[1,1],[-1,-1],[-1,1],[1,-1]]
-        
     end
 end

@@ -6,7 +6,10 @@ class NullPiece < Piece
     def initialize()
         @symbol = ' '
         @color = " "
-        
+        @pos = []
+    end
 
+    def moves()
+        return []
     end
 end

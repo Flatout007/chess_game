@@ -22,7 +22,6 @@ class Display
                     end
                  else
                     if [x,y] == @cursor.cursor_pos
-                        blank = "_ "
                         print "_ ".colorize(:red)
                     else
                         print "_ "

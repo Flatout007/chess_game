@@ -104,6 +104,30 @@ class Board
     def []=(pos,value)   
          @board[pos[0]][pos[1]] = value   
     end
+
+    def in_check(color)
+        king = nil
+
+        @board.each_with_index() do |sub,i|
+            sub.each_with_index() do |ele,j|
+                next if ele.is_a?(NullPiece)
+                
+                king = ele  if ele.is_a?(King) && ele.color == color
+            end
+        end
+
+        @board.each_with_index() do |sub,i|
+            sub.each_with_index() do |ele,j|
+                next if ele.is_a?(NullPiece)
+
+                if ele.moves.include?(king.pos) && ele.color != color && king.color == color
+                   return true
+               end
+            end
+        end
+      false
+      
+    end
    
 end
 
